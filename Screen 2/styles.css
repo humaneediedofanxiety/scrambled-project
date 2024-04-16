@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: beige;
+    background-image: url(./assets/8511961.webp);
+    background-size: cover;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: Apparel;
+    src: url(../Demo_Fonts/Fontspring-DEMO-appareldisplay-light.otf);
+}
+
+@font-face {
+    font-family: Apparel;
+    src: url(../Demo_Fonts/Fontspring-DEMO-appareldisplay-regular.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Meuga;
+    src: url(../Demo_Fonts/meuga-godyo.ttf);
+}
+
+#glow-effect {
+    position: fixed;
+    background-color: black;
+    /* box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.5); */
+    transition: box-shadow 0.3s ease;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hoverEff {
+    background-color: #3247D1 !important;
+    width: 200px !important;
+    height: 200px !important;
+}
+
+h2 {
+    font-size: 240px;
+    letter-spacing: 8px;
+    color: black;
+    font-family: Meuga;
+    font-weight: 100;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.main {
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+#rose {
+    height: 550px;
+    user-select: none;
+    z-index: 2;
+}
+
+.grass {
+    position: absolute;
+    bottom: -20px;
+    right: -60px;
+    z-index: -2;
+}
+
+.grass2 {
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    transform: scaleX(-1) scaleY(-1);
+    z-index: -2;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 120px;
+    cursor: pointer;
+    rotate: 20deg;
+    transition: 200ms;
+}
+
+.arrow {
+    position: absolute;
+    width: 100px;
+    bottom: 50px;
+    left: 140px;
+}
+
+.headText {
+    position: absolute;
+    z-index: default;
+
+}
+
+.scrollHover {
+    transform: scale(1.2);
+    transition: 200ms;
+    rotate: 30deg;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    position: fixed;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    display: none;
+
+    
+}
+
+.popup {
+    width: 60%;
+    height: 70%;
+    background-color: rgb(245, 245, 220, 0.9);
+    padding: 16px 28px;
+    background-image: url(./assets/8511961.webp);
+    border-radius: 20px;
+    
+}
+
+.main-text {
+    font-size: 164px;
+    letter-spacing: 1px;
+}
+
+.main-content > p {
+    font-size: 24px;
+    padding-top: 24px;
+    font-family: "Inter", sans-serif;
+    user-select: none;
+}
+
+.popup-hover {
+    display: flex !important;
+    transform: scale();
+    transition: 100ms;
+}
+
