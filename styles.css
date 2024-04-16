@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: Apparel;
-    src: url(../Demo_Fonts/Fontspring-DEMO-appareldisplay-light.otf);
+    src: url(./Demo_Fonts/Fontspring-DEMO-appareldisplay-light.otf);
 }
 
 @font-face {
     font-family: Apparel;
-    src: url(../Demo_Fonts/Fontspring-DEMO-appareldisplay-regular.otf);
+    src: url(./Demo_Fonts/Fontspring-DEMO-appareldisplay-regular.otf);
     font-weight: bold;
 }
 
