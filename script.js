@@ -1,73 +1,88 @@
-let glowEffect = document.getElementById('glow-effect');
-let headerText2 = document.getElementById('hText');
-let img = document.getElementById('rose');
-let scroll = document.getElementsByClassName('scroll')[0];
-let popup = document.getElementsByClassName('overlay')[0];
+let textHeading = document.querySelector('h1'); // Reference the H1 element
+const glowEffect = document.getElementById('glow-effect'); // Reference the glow div
+const middleText = document.getElementById('middleText'); // Reference the middleText element
+const desiredCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-// Function to handle mouse movement or touch position
+// Function to generate a random string of given length
+const randomStr = (length, characters) => {
+    let result = "";
+    for (let i = 0; i < length; i++) {
+        const randomNum = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomNum);
+    }
+    return result;
+};
+
+// Function to animate text change with scrambling effect
+function animateTextChange(element, newText) {
+    const textLength = newText.length;
+    let currentIndex = 0;
+
+    const intervalId = setInterval(() => {
+        if (currentIndex < textLength) {
+            const scrambledText = newText.substring(0, currentIndex) +
+                randomStr(textLength - currentIndex, desiredCharacters);
+            element.textContent = scrambledText;
+            currentIndex++;
+        } else {
+            clearInterval(intervalId);
+            element.textContent = newText; // Ensure final text is displayed correctly
+            element.classList.remove('descramble'); // Remove descramble class after animation
+        }
+    }, 20); // Adjust the interval for desired animation speed
+}
+
+// Event listener for touchmove (handling touch screen movements)
+document.addEventListener('touchmove', function (event) {
+    const touch = event.touches[0];
+    const touchX = touch.clientX;
+    const touchY = touch.clientY;
+
+    // Position the glow effect based on touch coordinates
+    handlePositionChange(touchX, touchY);
+
+    // Handle middleText interactions on touch
+    middleText.addEventListener('touchstart', function () {
+        glowEffect.style.backgroundColor = 'black';
+        middleText.classList.toggle('cursor');
+        middleText.classList.add('descramble');
+        animateTextChange(middleText, "Oh, is it April 19th Already?");
+    });
+
+    middleText.addEventListener('touchend', function () {
+        glowEffect.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+        animateTextChange(middleText, middleText.textContent); // Restore original text
+    });
+});
+
+// Function to position the glow effect based on cursor coordinates
 function handlePositionChange(x, y) {
     glowEffect.style.left = (x - glowEffect.offsetWidth / 2) + 'px';
     glowEffect.style.top = (y - glowEffect.offsetHeight / 2) + 'px';
 }
 
-// Mousemove event for desktop
+// Initial setup for the textHeading with random string on load
+textHeading.textContent = randomStr(4000, desiredCharacters);
+
+// Event listener for mousemove (handling cursor movements)
 document.addEventListener('mousemove', function (event) {
+    textHeading.textContent = randomStr(2000, desiredCharacters);
     handlePositionChange(event.clientX, event.clientY);
 });
 
-// Touchmove event for mobile and tablets
-document.addEventListener('touchmove', function (event) {
-    const touch = event.touches[0];
-    handlePositionChange(touch.clientX, touch.clientY);
+// Initialize middleText with scrambled text
+const finalHead = randomStr(20, desiredCharacters);
+middleText.textContent = finalHead;
+
+// Event listener for mouseover and mouseout (handling cursor interactions)
+middleText.addEventListener('mouseover', function () {
+    glowEffect.style.backgroundColor = 'black';
+    middleText.classList.toggle('cursor');
+    middleText.classList.add('descramble');
+    animateTextChange(middleText, "Oh, is it April 19th Already?");
 });
 
-// Mouseover and touchstart event for headerText2 and img
-function addGlowEffect() {
-    glowEffect.classList.add('hoverEff');
-}
-
-function removeGlowEffect() {
-    glowEffect.classList.remove('hoverEff');
-}
-
-headerText2.addEventListener('mouseover', addGlowEffect);
-headerText2.addEventListener('touchstart', addGlowEffect);
-
-img.addEventListener('mouseover', addGlowEffect);
-img.addEventListener('touchstart', addGlowEffect);
-
-headerText2.addEventListener('mouseout', removeGlowEffect);
-headerText2.addEventListener('touchend', removeGlowEffect);
-
-img.addEventListener('mouseout', removeGlowEffect);
-img.addEventListener('touchend', removeGlowEffect);
-
-// Mouseover and touchstart event for scroll
-scroll.addEventListener('mouseover', () => scroll.classList.add('scrollHover'));
-scroll.addEventListener('touchstart', () => scroll.classList.add('scrollHover'));
-
-// Mouseout and touchend event for scroll
-scroll.addEventListener('mouseout', () => scroll.classList.remove('scrollHover'));
-scroll.addEventListener('touchend', () => scroll.classList.remove('scrollHover'));
-
-// Click event for popup
-scroll.addEventListener('click', () => {
-    popup.classList.add('popup-hover');
-    popup.addEventListener('dblclick', () => popup.classList.remove('popup-hover'))
-
-    // Double tap event (touchstart and touchend)
-    let tapCount = 0;
-    const maxTapInterval = 300; // Adjust as needed for double tap speed
-
-    scroll.addEventListener('touchstart', function(event) {
-        tapCount++;
-        if (tapCount === 2) {
-            tapCount = 0;
-            popup.classList.remove('popup-hover');
-        }
-        setTimeout(() => {
-            tapCount = 0;
-        }, maxTapInterval);
-    });
+middleText.addEventListener('mouseout', function () {
+    glowEffect.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+    animateTextChange(middleText, finalHead); // Restore original text
 });
-
