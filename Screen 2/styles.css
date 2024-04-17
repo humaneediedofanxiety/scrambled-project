@@ -83,6 +83,7 @@ h2 {
     height: 550px;
     user-select: none;
     z-index: 2;
+    transition: 200ms;
 }
 
 .grass {
@@ -171,7 +172,8 @@ h2 {
 }
 
 #rose:hover {
-   transform: scale(1.3);
+   transform: scale(1.1);
+    rotate: 20deg;
     transition: 200ms
 
 }
