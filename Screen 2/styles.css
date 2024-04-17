@@ -170,6 +170,12 @@ h2 {
     display: flex !important
 }
 
+#rose:hover {
+   transform: scale(1.3);
+    transition: 200ms
+
+}
+
 /* md */
 @media (max-width: 768px) {
     .container {
