@@ -2,12 +2,22 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+    overflow: hidden;
 }
 
 body {
     background-color: beige;
     background-image: url(./assets/8511961.webp);
     background-size: cover;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     overflow: hidden;
 }
 
@@ -65,6 +75,7 @@ h2 {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100vw;
 }
 
 
@@ -119,8 +130,8 @@ h2 {
 }
 
 .overlay {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(1px);
     position: fixed;
@@ -134,8 +145,8 @@ h2 {
 }
 
 .popup {
-    width: 60%;
-    height: 70%;
+    width: 70%;
+    height: 80%;
     background-color: rgb(245, 245, 220, 0.9);
     padding: 16px 28px;
     background-image: url(./assets/8511961.webp);
@@ -156,8 +167,137 @@ h2 {
 }
 
 .popup-hover {
-    display: flex !important;
-    transform: scale();
-    transition: 100ms;
+    display: flex !important
 }
 
+/* md */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    h2 {
+        font-size: 190px;
+
+    }
+
+    .hoverEff {
+        width: 160px;
+        height: 160px;
+    }
+
+    #rose {
+        height: 400px;
+    }
+
+    .grass {
+        width: 164px;
+        right: -100px;
+    }
+
+    .grass2 {
+        width: 164px;
+    }
+
+    .scroll {
+        bottom: 20px;
+        left: 20px;
+        width: 100px;
+    }
+
+    .arrow {
+        bottom: 40px;
+        left: 120px;
+    }
+
+    .main-text {
+        font-size: 120px;
+    }
+
+    .main-content>p {
+        font-size: 22px;
+    }
+
+    .popup {
+        width: 90%;
+        height: 90%;
+        padding: 14px 24px;
+    }
+
+    .hoverEff {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
+/* sm */
+@media (max-width: 468px) {
+    .container {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    h2 {
+        font-size: 154px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    .hoverEff {
+        width: 120px;
+        height: 120px;
+    }
+
+    #rose {
+        height: 300px;
+    }
+
+    .grass {
+        width: 124px;
+        right: -80px;
+        bottom: -50px;
+    }
+
+    .grass2 {
+        width: 124px;
+        top: -50px;
+        left: -40px;
+    }
+
+    .scroll {
+        bottom: 10px;
+        left: 10px;
+        width: 80px;
+    }
+
+    .arrow {
+        bottom: 30px;
+        left: 90px;
+    }
+
+    .main-text {
+        font-size: 80px;
+        padding-bottom: 24px;
+    }
+
+    .main-content>p {
+        font-size: 18px;
+        padding-left: 24px;
+    }
+
+    .popup {
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .hoverEff {
+        width: 84px !important;
+        height: 84px !important;
+    }
+}
