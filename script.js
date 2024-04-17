@@ -38,6 +38,8 @@ document.addEventListener('touchmove', function (event) {
     const touchX = touch.clientX;
     const touchY = touch.clientY;
 
+    textHeading.textContent = randomStr(2000, desiredCharacters);
+
     // Position the glow effect based on touch coordinates
     handlePositionChange(touchX, touchY);
 
