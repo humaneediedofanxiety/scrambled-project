@@ -200,13 +200,13 @@ h2 {
     }
 
     .scroll {
-        bottom: 20px;
+        bottom: -30px;
         left: 20px;
         width: 100px;
     }
 
     .arrow {
-        bottom: 40px;
+        bottom: -10px;
         left: 120px;
     }
 
@@ -266,13 +266,13 @@ h2 {
     }
 
     .scroll {
-        bottom: 10px;
+        bottom: -50px;
         left: 10px;
         width: 80px;
     }
 
     .arrow {
-        bottom: 30px;
+        bottom: -20px;
         left: 90px;
     }
 
